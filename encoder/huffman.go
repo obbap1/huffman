@@ -46,7 +46,7 @@ func (h Huffman) Do() (string, *common.HuffManNode, *common.Stats) {
 	// implement the huffman algorithm
 	for h.PQ.Len() > 1 {
 		// pop the 2 smallest items
-		first, second := h.PQ.Pop().(*common.HuffManNode), h.PQ.Pop().(*common.HuffManNode)
+		first, second := heap.Pop(h.PQ).(*common.HuffManNode), heap.Pop(h.PQ).(*common.HuffManNode)
 		// merge the nodes
 		// To be strict, some versions of huffman use ASCII for ordering if the weights are the same
 		// but this just merges left to right
